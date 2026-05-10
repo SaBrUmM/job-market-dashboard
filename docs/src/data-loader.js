@@ -138,8 +138,8 @@ class DataLoader {
             uniqueCompanies: new Set(data.map(j => j.company)).size,
             uniqueLocations: new Set(data.map(j => j.location_clean)).size,
             avgSalary: data
-                .filter(j => j.salary_min)
-                .reduce((sum, j) => sum + (j.salary_min || 0), 0) / data.filter(j => j.salary_min).length || 0,
+                .filter(j => j.salary_min != null)
+                .reduce((sum, j) => sum + j.salary_min, 0) / (data.filter(j => j.salary_min != null).length || 1),
             avgExperience: data.reduce((sum, j) => sum + (j.experience_years || 0), 0) / data.length || 0
         };
 
@@ -184,7 +184,7 @@ class DataLoader {
     getSalaryDistribution() {
         const distribution = {};
         const salaries = this.filteredData
-            .filter(j => j.salary_min)
+            .filter(j => j.salary_min != null)
             .map(j => j.salary_min);
 
         if (salaries.length === 0) return distribution;
