@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Market Dashboard - Data Science & IT</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+    <link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>📊 Job Market Dashboard</h1>
+                <p>Analysis of 5000+ Data Science & IT Job Postings</p>
+            </div>
+        </header>
+
+        <!-- Filters Section -->
+        <section class="filters-section">
+            <div class="filters-container">
+                <div class="filter-group">
+                    <label for="search-filter">Search by Title:</label>
+                    <input type="text" id="search-filter" placeholder="Search jobs..." class="filter-input">
+                </div>
+                <div class="filter-group">
+                    <label for="location-filter">Location:</label>
+                    <select id="location-filter" class="filter-select">
+                        <option value="">All Locations</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="company-filter">Company:</label>
+                    <select id="company-filter" class="filter-select">
+                        <option value="">All Companies</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="skills-filter">Skills:</label>
+                    <select id="skills-filter" class="filter-select">
+                        <option value="">All Skills</option>
+                    </select>
+                </div>
+                <button id="reset-filters" class="btn btn-secondary">Reset Filters</button>
+            </div>
+        </section>
+
+        <!-- Statistics Section -->
+        <section class="stats-section">
+            <div class="stat-card">
+                <h3>Total Jobs</h3>
+                <p class="stat-number" id="total-jobs">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Companies</h3>
+                <p class="stat-number" id="total-companies">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Locations</h3>
+                <p class="stat-number" id="total-locations">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Avg Salary</h3>
+                <p class="stat-number" id="avg-salary">$0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Avg Experience</h3>
+                <p class="stat-number" id="avg-experience">0 years</p>
+            </div>
+        </section>
+
+        <!-- Charts Section -->
+        <section class="charts-section">
+            <div class="chart-container">
+                <h2>Top 10 Job Titles</h2>
+                <canvas id="titles-chart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h2>Top 10 Companies</h2>
+                <canvas id="companies-chart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h2>Job Distribution by Location</h2>
+                <canvas id="location-chart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h2>Top Required Skills</h2>
+                <canvas id="skills-chart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h2>Salary Distribution (by 50K ranges)</h2>
+                <canvas id="salary-chart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h2>Employment Type Distribution</h2>
+                <canvas id="employment-chart"></canvas>
+            </div>
+        </section>
+
+        <!-- Jobs Table Section -->
+        <section class="jobs-table-section">
+            <h2>Browse All Jobs</h2>
+            <div class="table-controls">
+                <div class="entries-info">
+                    Showing <span id="showing-start">0</span>-<span id="showing-end">0</span> 
+                    of <span id="showing-total">0</span> jobs
+                </div>
+                <div class="pagination">
+                    <button id="prev-page" class="btn btn-secondary">← Previous</button>
+                    <span id="page-info">Page 1</span>
+                    <button id="next-page" class="btn btn-secondary">Next →</button>
+                </div>
+            </div>
+            <table class="jobs-table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Company</th>
+                        <th>Location</th>
+                        <th>Salary</th>
+                        <th>Type</th>
+                        <th>Skills</th>
+                    </tr>
+                </thead>
+                <tbody id="jobs-table-body">
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Data collected on May 2026 | Dashboard by Student | 
+               <a href="https://github.com" target="_blank">View on GitHub</a></p>
+        </footer>
+    </div>
+
+    <script src="src/data-loader.js"></script>
+    <script src="src/charts.js"></script>
+    <script src="src/app.js"></script>
+</body>
+</html>
