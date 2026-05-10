@@ -79,7 +79,7 @@ class DataPreprocessor:
             'Java': ['java'],
             'C++': ['c++', 'cpp'],
             'SQL': ['sql', 'database'],
-            'R': ['\\br\\b', 'r programming'],
+            'R': ['r', 'r programming'],
             'Go': ['golang', 'go'],
             'Rust': ['rust'],
             'TypeScript': ['typescript', 'ts'],
@@ -118,7 +118,7 @@ class DataPreprocessor:
         
         for skill, patterns in skills_dict.items():
             for pattern in patterns:
-                if re.search(f'\\b{pattern}\\b', text):
+                if re.search(re.escape(pattern), text):
                     found_skills.append(skill)
                     break
         
