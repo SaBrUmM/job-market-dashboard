@@ -1,0 +1,23 @@
+{
+  "name": "job-market-dashboard",
+  "version": "1.0.0",
+  "description": "Interactive dashboard for job postings analysis",
+  "main": "index.js",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "dev": "python -m http.server 8000",
+    "deploy": "node scripts/deploy.js"
+  },
+  "keywords": [
+    "jobs",
+    "data-science",
+    "visualization",
+    "dashboard"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "chart.js": "^4.4.0",
+    "chartjs-plugin-datalabels": "^2.2.0"
+  }
+}
