@@ -1,0 +1,16 @@
+# GitHub Pages configuration
+title: Job Market Dashboard
+description: Interactive dashboard for analyzing 5000+ Data Science and IT job postings
+remote_theme: 
+
+# Build settings
+markdown: kramdown
+exclude:
+  - scraper/
+  - data/
+  - .github/
+  - README.md
+
+# Pages settings
+theme: null
+plugins: []

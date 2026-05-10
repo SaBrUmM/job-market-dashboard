@@ -24,30 +24,30 @@ cd ..
 python convert_to_json.py
 ```
 
-### 4. Run Dashboard
+### 4. Run Dashboard (Locally)
 ```bash
 cd web
 python -m http.server 8000
 ```
-Visit: `http://localhost:8000/public/`
+Visit: `http://localhost:8000/`
 
-## Project Structure
+## Deploy to GitHub Pages
 
-```
-├── scraper/
-│   ├── scraper.py          # Job scraper
-│   ├── preprocessor.py     # Data cleaning & enrichment
-│   └── requirements.txt    # Dependencies
-├── data/
-│   ├── jobs_raw.csv        # Raw data
-│   └── jobs_cleaned.csv    # Cleaned data
-├── web/
-│   ├── public/
-│   │   ├── index.html      # Dashboard
-│   │   └── data/           # JSON data
-│   └── src/
-│       ├── app.js          # App logic
-│       ├── charts.js       # Visualizations
+The dashboard is automatically deployed to GitHub Pages using the `/docs` folder.
+
+**Live Demo:** https://sabrumm.github.io/job-market-dashboard/docs/
+
+### Automatic Deployment
+On every push to `main` branch:
+1. GitHub Actions runs the Python scripts (scraper, preprocessor)
+2. Copies all files to `/docs` folder
+3. GitHub Pages automatically serves from `/docs`
+
+### Manual Setup (for your own fork)
+1. Fork the repository
+2. Push to your `main` branch
+3. Go to Settings → Pages → Deploy from → `main` branch, `/docs` folder
+4. Access your dashboard at `https://YOUR-USERNAME.github.io/job-market-dashboard/docs/`
 │       ├── data-loader.js  # Data handling
 │       └── styles.css      # Styling
 ├── convert_to_json.py      # CSV → JSON converter

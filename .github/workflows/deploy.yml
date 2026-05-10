@@ -42,9 +42,22 @@ jobs:
     - name: Convert CSV to JSON for dashboard
       run: python convert_to_json.py
 
+    - name: Copy web folder to docs for GitHub Pages
+      run: |
+        rm -rf docs
+        cp -r web docs
+
+    - name: Commit and push docs folder
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add docs/
+        git commit -m "Update dashboard data" || echo "No changes to commit"
+        git push
+
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./web
+        publish_dir: ./docs
         cname: ''
