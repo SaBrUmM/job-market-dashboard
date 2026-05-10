@@ -1,8 +1,8 @@
 # Job Market Dashboard 📊
 
-Dashboard for analyzing Data Science and IT job postings from HH.ru. Built as a university project.
+Dashboard for analyzing Data Science and IT job postings from HH.ru.
 
-**Live:** https://sabrumm.github.io/job-market-dashboard/docs/
+**Live:** https://sabrumm.github.io/job-market-dashboard/
 
 ## What it does
 
