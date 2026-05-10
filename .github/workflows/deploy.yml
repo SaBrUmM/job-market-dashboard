@@ -42,11 +42,8 @@ jobs:
     - name: Convert CSV to JSON for dashboard
       run: python convert_to_json.py
 
-    - name: Create data directory if not exists
-      run: mkdir -p web/public/data
-
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./web/public
+        publish_dir: ./web

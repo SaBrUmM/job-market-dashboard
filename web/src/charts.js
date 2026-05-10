@@ -27,7 +27,7 @@ function initializeCharts() {
     if (titlesCtx) {
         const topTitles = dataLoader.getTopItems('title_normalized', 10);
         charts.titles = new Chart(titlesCtx, {
-            type: 'barChart',
+            type: 'bar',
             data: {
                 labels: Object.keys(topTitles),
                 datasets: [{

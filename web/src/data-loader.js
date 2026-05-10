@@ -7,14 +7,14 @@ class DataLoader {
     constructor() {
         this.data = null;
         this.filteredData = null;
-        this.dataUrl = '/data/jobs_cleaned.json'; // Change to your data source
+        this.dataUrl = './data/jobs_cleaned.json'; // Change to your data source
         this.cache = new Map();
     }
 
     async loadData() {
         try {
             // Try to load from generated JSON file
-            const response = await fetch('/data/jobs_cleaned.json');
+            const response = await fetch('./data/jobs_cleaned.json');
             if (response.ok) {
                 const jsonData = await response.json();
                 // Ensure data is an array
@@ -24,7 +24,7 @@ class DataLoader {
                 return this.data;
             }
         } catch (error) {
-            console.warn('Could not load from /data/jobs_cleaned.json:', error);
+            console.warn('Could not load from ./data/jobs_cleaned.json:', error);
         }
 
         // Fallback to mock data if real data not available

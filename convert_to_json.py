@@ -11,10 +11,10 @@ import os
 def convert_csv_to_json():
     """Convert cleaned CSV to JSON format"""
     csv_path = 'data/jobs_cleaned.csv'
-    json_path = 'web/public/data/jobs_cleaned.json'
+    json_path = 'web/data/jobs_cleaned.json'
     
     # Create output directory
-    os.makedirs('web/public/data', exist_ok=True)
+    os.makedirs('web/data', exist_ok=True)
     
     # Load CSV
     df = pd.read_csv(csv_path)
