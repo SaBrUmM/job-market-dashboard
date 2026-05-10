@@ -6,6 +6,7 @@ Used by GitHub Actions workflow
 
 import pandas as pd
 import json
+import ast
 import os
 
 def convert_csv_to_json():
@@ -23,7 +24,7 @@ def convert_csv_to_json():
     if 'skills' in df.columns:
         try:
             df['skills'] = df['skills'].apply(
-                lambda x: json.loads(x) if isinstance(x, str) and x.startswith('[') else []
+                lambda x: ast.literal_eval(x) if isinstance(x, str) and x.startswith('[') else []
             )
         except Exception as e:
             print(f"Warning: Could not parse skills: {e}")
